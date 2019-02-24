@@ -1,0 +1,34 @@
+ext {
+  navVersion = "1.0.0-alpha02"
+}
+
+implementation "android.arch.navigation:navigation-fragment:$navVersion"
+implementation "android.arch.navigation:navigation-ui:$navVersion"
+/* Top level build.gradle */
+buildscript {  
+  repositories {
+    google()
+  }
+  dependencies {
+    classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0-alpha02"
+  }
+}
+  
+/* App level build.gradle */
+apply plugin: "kotlin-android-extensions"
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+  ...
+}
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+</navigation><fragment
+  android:id="@+id/nav_host"
+  android:layout_height="match_parent"
+  android:layout_width="match_parent"
+  android:name="androidx.navigation.fragment.NavHostFragment"
+  app:navGraph="@navigation/nav_graph"
+  app:defaultNavHost="true" />
